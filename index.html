@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#68d7d0">
+  <meta name="description" content="質問に答えるだけで、これから30年の家族の支出をやさしく見える化します。">
+  <title>驚愕のライフサイクル表を知る</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ライフサイクル表 トップ">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span>くらしの未来図</span>
+    </a>
+    <span class="step-label" id="stepLabel">STEP 1 / 4</span>
+  </header>
+
+  <main>
+    <section id="formView" class="view">
+      <div class="hero">
+        <p class="eyebrow">30年後まで、ひと目でわかる</p>
+        <h1>驚愕の<br><span>ライフサイクル表</span>を知る</h1>
+        <p>いくつかの質問に答えるだけ。家族のこれからに必要なお金を、やさしく見える化します。</p>
+      </div>
+
+      <div class="progress-wrap" aria-label="入力進捗">
+        <div class="progress-meta"><span id="progressTitle">あなたについて</span><strong id="progressPercent">25%</strong></div>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+
+      <form id="lifeForm" novalidate>
+        <section class="form-step active" data-title="あなたについて">
+          <div class="question-card">
+            <div class="q-number">01</div>
+            <fieldset><legend>現在の年齢を教えてください</legend>
+              <p class="hint">近い年齢を選んでください</p>
+              <div class="choices grid-3 age-choices" data-name="age">
+                <button type="button" data-value="20">20〜24歳</button><button type="button" data-value="25">25〜29歳</button><button type="button" data-value="30">30〜34歳</button><button type="button" data-value="35">35〜39歳</button><button type="button" data-value="40">40〜44歳</button><button type="button" data-value="45" class="selected">45〜49歳</button><button type="button" data-value="50">50〜54歳</button><button type="button" data-value="55">55〜59歳</button><button type="button" data-value="60">60〜64歳</button><button type="button" data-value="65">65〜69歳</button><button type="button" data-value="70">70〜74歳</button><button type="button" data-value="75">75歳以上</button>
+              </div>
+            </fieldset>
+          </div>
+          <div class="question-card">
+            <div class="q-number">02</div>
+            <fieldset><legend>配偶者はいらっしゃいますか？</legend>
+              <div class="choices grid-2" data-name="spouse"><button type="button" data-value="1" class="selected">はい</button><button type="button" data-value="0">いいえ</button></div>
+            </fieldset>
+          </div>
+          <div class="question-card">
+            <div class="q-number">03</div>
+            <fieldset><legend>お子さまは何人ですか？</legend>
+              <div class="choices grid-4" data-name="children"><button type="button" data-value="0">0人</button><button type="button" data-value="1">1人</button><button type="button" data-value="2" class="selected">2人</button><button type="button" data-value="3">3人以上</button></div>
+            </fieldset>
+          </div>
+          <div class="question-card" id="childAgesCard">
+            <div class="q-number">04</div>
+            <fieldset><legend>お子さまの現在の年齢は？</legend><p class="hint">それぞれ近い年齢を選択</p><div id="childAgeFields"></div></fieldset>
+          </div>
+        </section>
+
+        <section class="form-step" data-title="教育と住まい">
+          <div class="section-intro"><span>STEP 2</span><h2>教育と住まい</h2><p>大きな支出になりやすい項目です。</p></div>
+          <div class="question-card"><div class="q-number">05</div><fieldset><legend>教育方針を教えてください</legend><div class="choices card-choice grid-2" data-name="education"><button type="button" data-value="public" class="selected"><b>公立中心</b><small>高校まで公立を想定</small></button><button type="button" data-value="private"><b>私立も検討</b><small>中学以降の私立を想定</small></button></div></fieldset></div>
+          <div class="question-card"><div class="q-number">06</div><fieldset><legend>毎月の住宅費は？</legend><p class="hint">家賃・住宅ローン・管理費の合計</p><div class="choices grid-3" data-name="housing"><button type="button" data-value="60000">〜6万円</button><button type="button" data-value="90000">6〜9万円</button><button type="button" data-value="120000" class="selected">9〜12万円</button><button type="button" data-value="150000">12〜15万円</button><button type="button" data-value="180000">15〜18万円</button><button type="button" data-value="210000">18万円〜</button></div></fieldset></div>
+        </section>
+
+        <section class="form-step" data-title="車とおでかけ">
+          <div class="section-intro"><span>STEP 3</span><h2>車とおでかけ</h2><p>ご家庭の楽しみも忘れずに。</p></div>
+          <div class="question-card"><div class="q-number">07</div><fieldset><legend>車を買い替える頻度は？</legend><div class="choices grid-3" data-name="carCycle"><button type="button" data-value="0">所有しない</button><button type="button" data-value="6">6年ごと</button><button type="button" data-value="8" class="selected">8年ごと</button><button type="button" data-value="10">10年ごと</button><button type="button" data-value="12">12年ごと</button><button type="button" data-value="15">15年以上</button></div></fieldset></div>
+          <div class="question-card" id="carTypeCard"><div class="q-number">08</div><fieldset><legend>車種を教えてください</legend><div class="choices grid-2" data-name="carType"><button type="button" data-value="light">軽自動車</button><button type="button" data-value="standard" class="selected">普通車</button></div></fieldset></div>
+          <div class="question-card"><div class="q-number">09</div><fieldset><legend>国内旅行は年に何回？</legend><div class="choices grid-4" data-name="travel"><button type="button" data-value="0">0回</button><button type="button" data-value="1">1回</button><button type="button" data-value="2" class="selected">2回</button><button type="button" data-value="3">3回以上</button></div></fieldset></div>
+        </section>
+
+        <section class="form-step" data-title="日々の楽しみ">
+          <div class="section-intro"><span>STEP 4</span><h2>日々の楽しみ</h2><p>普段の過ごし方を教えてください。</p></div>
+          <div class="question-card"><div class="q-number">10</div><fieldset><legend>外食は月に何回？</legend><div class="choices grid-4" data-name="dining"><button type="button" data-value="0">0回</button><button type="button" data-value="2">1〜2回</button><button type="button" data-value="4" class="selected">3〜4回</button><button type="button" data-value="6">5回以上</button></div></fieldset></div>
+          <div class="question-card"><div class="q-number">11</div><fieldset><legend>飲酒の習慣はありますか？</legend><div class="choices grid-3" data-name="drinking"><button type="button" data-value="0">飲まない</button><button type="button" data-value="1" class="selected">時々飲む</button><button type="button" data-value="2">よく飲む</button></div></fieldset></div>
+          <div class="question-card"><div class="q-number">12</div><fieldset><legend>喫煙の習慣はありますか？</legend><div class="choices grid-2" data-name="smoking"><button type="button" data-value="0" class="selected">吸わない</button><button type="button" data-value="1">吸う</button></div></fieldset></div>
+          <div class="question-card"><div class="q-number">13</div><fieldset><legend>習い事は週に何回？</legend><p class="hint">ご家族全員のおおよその合計</p><div class="choices grid-4" data-name="lessons"><button type="button" data-value="0">0回</button><button type="button" data-value="1">1回</button><button type="button" data-value="2" class="selected">2回</button><button type="button" data-value="3">3回以上</button></div></fieldset></div>
+        </section>
+
+        <div class="form-nav"><button type="button" class="back" id="backBtn">戻る</button><button type="button" class="next" id="nextBtn">次へ進む <span>→</span></button></div>
+      </form>
+      <p class="privacy">🔒 入力した内容は保存・送信されません</p>
+    </section>
+
+    <section id="resultView" class="view result-view" hidden>
+      <div class="result-hero">
+        <button type="button" id="editBtn" class="edit-btn">← 条件を変更</button>
+        <p class="eyebrow">あなたの家族の未来予測</p><h1>これから30年間の<br>ライフサイクル表</h1>
+        <div class="total-card"><p>30年間の予想総支出</p><strong id="totalAmount">0<span>万円</span></strong><small>現在の物価をもとにした概算です</small></div>
+      </div>
+      <div class="result-content">
+        <section class="insight-card"><div class="insight-icon">!</div><div><p>支出のピークは</p><h2 id="peakText">10〜15年後</h2><p id="peakReason">教育費と車の買い替えが重なる時期です</p></div></section>
+        <section class="result-section"><div class="section-heading"><div><p class="eyebrow">FUTURE COST</p><h2>5年ごとの将来支出</h2></div><span>単位：万円</span></div><div class="chart" id="barChart" aria-label="5年ごとの支出棒グラフ"></div></section>
+        <section class="result-section"><div class="section-heading"><div><p class="eyebrow">BREAKDOWN</p><h2>カテゴリ別の内訳</h2></div></div><div class="donut-wrap"><div class="donut" id="donut"><div><strong id="donutTotal">0</strong><small>万円</small></div></div><div class="legend" id="legend"></div></div></section>
+        <section class="simulation"><p class="eyebrow">かんたん見直し</p><h2>ここを見直すと<br>どのくらい変わる？</h2><p>気になる項目をオンにして、30年間の変化を見てみましょう。</p><div id="simOptions"></div><div class="saving"><span>見直し後の節約見込み</span><strong id="savingAmount">0万円</strong><small id="newTotal">総支出 0万円</small></div></section>
+        <section class="note"><h3>この結果について</h3><p>一般的な費用をもとにしたシミュレーションです。将来の物価変動、税金、医療費、日常生活費などは含みません。実際の家計計画は専門家にもご相談ください。</p></section>
+        <button type="button" class="restart" id="restartBtn">はじめからやり直す</button>
+      </div>
+    </section>
+  </main>
+  <div class="poodle-walk" aria-hidden="true">
+    <svg viewBox="0 0 150 92" role="presentation">
+      <g class="poodle">
+        <ellipse class="shadow" cx="76" cy="82" rx="55" ry="5"/>
+        <g class="tail"><path d="M116 53c18-6 14-23 4-21"/><circle cx="121" cy="29" r="10"/></g>
+        <g class="legs"><path d="M55 65v16M96 65v16"/><path d="M70 66l-3 15M110 64l4 17"/></g>
+        <ellipse class="body" cx="82" cy="55" rx="39" ry="24"/>
+        <circle class="fur" cx="49" cy="39" r="22"/><circle class="fur" cx="36" cy="25" r="13"/><circle class="fur" cx="56" cy="21" r="15"/>
+        <path class="ear" d="M37 36c-12 2-13 22-2 25 10-4 12-16 9-24z"/>
+        <ellipse class="muzzle" cx="39" cy="46" rx="14" ry="10"/>
+        <circle class="eye" cx="47" cy="35" r="2.8"/><circle class="nose" cx="27" cy="44" r="3.5"/>
+        <path class="smile" d="M30 49q5 6 10 1"/>
+        <path class="collar" d="M54 50q8 8 15 9"/><circle class="tag" cx="64" cy="58" r="3"/>
+      </g>
+    </svg>
+  </div>
+  <footer>© 2026 くらしの未来図</footer>
+  <script src="script.js"></script>
+</body>
+</html>
